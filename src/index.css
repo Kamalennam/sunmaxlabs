@@ -1,0 +1,72 @@
+@import './styles/colors.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color-scheme: light dark;
+    --background: 0 0% 100%;
+    --foreground: 215 28% 13%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 45%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 13%;
+    --border: 215 27% 91%;
+    --input: 213 27% 84%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--brand-secondary);
+    --secondary-foreground: 0 0% 100%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 234 83% 14%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: var(--brand-primary);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 215 80% 8%;
+    --foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 216 47% 75%;
+    --popover: 217 33% 12%;
+    --popover-foreground: 210 40% 98%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
+    --border: 218 32% 22%;
+    --input: 216 33% 25%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 213 32% 12%;
+    --secondary: var(--brand-secondary);
+    --secondary-foreground: 210 40% 98%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 210 60% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: var(--brand-light);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    scroll-behavior: smooth;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    @apply max-w-full h-auto;
+  }
+}

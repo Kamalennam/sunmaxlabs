@@ -1,0 +1,21 @@
+:root {
+  /* Brand palette derived from logo */
+  --brand-primary: 228 98% 35%;
+  --brand-secondary: 16 95% 47%;
+  --brand-accent: 48 98% 45%;
+
+  /* Supporting neutrals for gradients/backgrounds */
+  --brand-deep: 218 64% 16%;
+  --brand-mid: 204 68% 29%;
+  --brand-light: 202 89% 56%;
+}
+
+.dark {
+  --brand-primary: 225 95% 62%;
+  --brand-secondary: 18 96% 62%;
+  --brand-accent: 48 98% 50%;
+  --brand-deep: 215 80% 12%;
+  --brand-mid: 210 65% 22%;
+  --brand-light: 202 84% 48%;
+}
+
