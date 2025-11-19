@@ -39,10 +39,7 @@ function AutoImage({ images, name }: { images: string[]; name: string }) {
 
 export function ProductsSection({ onProductClick }: ProductsSectionProps) {
   return (
-    <section
-      id="products"
-      className="bg-muted/10 py-14 md:py-16"
-    >
+    <section id="products" className="bg-muted/10 py-16 sm:py-20">
       <div className="container space-y-8">
         <div className="space-y-3 text-center md:text-left">
           <motion.span
@@ -70,8 +67,8 @@ export function ProductsSection({ onProductClick }: ProductsSectionProps) {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
-            Explore Sunmax Laboratories&apos; key formulations across neuropathy, analgesics and hematinics. Select a
-            product card to view its full profile similar to Plena Remedies&apos; product pages.
+            Explore Sunmax Laboratories&apos; key formulations across neuropathy, analgesics, and hematinics. Select a
+            product card to view its full profile or raise an enquiry instantly.
           </motion.p>
         </div>
 

@@ -62,9 +62,7 @@ export function ProductsPanel({ isOpen, onClose, onEnquiry, onViewProduct }: Pro
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.26em] text-primary/80">Products</p>
-                <h2 className="text-lg font-semibold leading-tight sm:text-xl">
-                  Evidence-led formulations inspired by Plena Remedies&apos; portfolio
-                </h2>
+                <h2 className="text-lg font-semibold leading-tight sm:text-xl">Evidence-led formulations for growth</h2>
                 <p className="mt-1 text-xs text-muted-foreground">
                   Select a product to view full details or raise an enquiry for franchise / third-party manufacturing.
                 </p>
@@ -98,6 +96,7 @@ export function ProductsPanel({ isOpen, onClose, onEnquiry, onViewProduct }: Pro
 
                   <div className="mt-auto flex flex-wrap gap-2 pt-1">
                     <Button
+                      type="button"
                       size="sm"
                       className="h-7 rounded-full px-3 text-[11px]"
                       onClick={() => {
@@ -108,6 +107,7 @@ export function ProductsPanel({ isOpen, onClose, onEnquiry, onViewProduct }: Pro
                       Enquiry
                     </Button>
                     <Button
+                      type="button"
                       variant="outline"
                       size="sm"
                       className="h-7 rounded-full px-3 text-[11px]"

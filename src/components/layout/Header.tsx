@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 export const NAV_ITEMS = [
   { label: 'About', href: '#about', key: 'about' },
   { label: 'Products', href: '#products', key: 'products' },
-  { label: 'Divisions', href: '#divisions', key: 'divisions' },
+  // { label: 'Divisions', href: '#divisions', key: 'divisions' },
   { label: 'Certifications', href: '#divisions', key: 'quality' }, // Map to divisions section
   { label: 'Contact', href: '#contact', key: 'contact' },
 ]
@@ -109,10 +109,10 @@ export function Header({ className, goHome, isProductPage = false }: HeaderProps
 
           <div className="flex items-center justify-between gap-4 md:hidden">
             <Button
-              className="rounded-full border border-black/10 bg-[hsl(var(--brand-accent))] px-4 py-2 text-sm text-slate-900 shadow-sm hover:bg-[hsl(var(--brand-accent))]/90"
-              onClick={scrollToContact}
+              // className="rounded-full border border-black/10 bg-[hsl(var(--brand-accent))] px-4 py-2 text-sm text-slate-900 shadow-sm hover:bg-[hsl(var(--brand-accent))]/90"
+              // onClick={scrollToContact}
             >
-              Get a Quote
+              {/* Get a Quote */}
             </Button>
             <button
               type="button"
@@ -140,12 +140,12 @@ export function Header({ className, goHome, isProductPage = false }: HeaderProps
                 {item.label}
               </motion.a>
             ))}
-            <Button
+            {/* <Button
               className="rounded-full border border-black/10 bg-[hsl(var(--brand-accent))] px-5 py-2 text-slate-900 shadow-sm hover:bg-[hsl(var(--brand-accent))]/90"
               onClick={scrollToContact}
             >
               Get a Quote
-            </Button>
+            </Button> */}
           </nav>
         </div>
       </div>

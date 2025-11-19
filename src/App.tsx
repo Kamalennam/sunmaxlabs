@@ -9,6 +9,7 @@ import { Contact } from '@/components/sections/Contact'
 import { ProductsSection } from '@/components/sections/ProductsSection'
 import { getProductBySlug, type Product, type ProductSlug } from '@/data/products'
 import { Button } from '@/components/ui/button'
+import aboutImage from '@/assets/about_img.jpg'
 
 const specialties = [
   {
@@ -21,7 +22,7 @@ const specialties = [
     icon: Shield,
     title: 'WHO-GMP Compliance',
     description:
-      'Quality-by-design processes aligned with Plena Remedies’ global manufacturing benchmarks.',
+      'Quality-by-design processes audited to stringent global manufacturing benchmarks.',
   },
   {
     icon: Factory,
@@ -31,13 +32,26 @@ const specialties = [
   },
 ]
 
-function scrollToContact() {
-  if (typeof document === 'undefined') return
-  const element = document.getElementById('contact')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
+const aboutHighlights = [
+  {
+    icon: Sparkles,
+    title: 'Vision',
+    description:
+      'To get into the core values of pharmacy with utmost diligence and become the most trusted name in the industry.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Mission',
+    description:
+      'To achieve the highest standards in the practice of pharmacy while promoting public health and safety across India.',
+  },
+  {
+    icon: Shield,
+    title: 'Quality',
+    description:
+      'To maintain every manufacturing standard, follow industrial policies, and prove that quality people deliver quality products.',
+  },
+]
 
 function useProductRouting() {
   const [route, setRoute] = useState<'home' | 'product'>('home')
@@ -69,6 +83,9 @@ function useProductRouting() {
     if (typeof window !== 'undefined') {
       const newPath = `/products/${product.slug}`
       window.history.pushState(null, '', newPath)
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      })
     }
     setRoute('product')
     setActiveProduct(product)
@@ -77,6 +94,9 @@ function useProductRouting() {
   const goHome = () => {
     if (typeof window !== 'undefined') {
       window.history.pushState(null, '', '/')
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      })
     }
     setRoute('home')
     setActiveProduct(null)
@@ -402,9 +422,10 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       <Header goHome={goHome} isProductPage={isProductPage} />
 
-      {isHome && <Hero />}
-
-      <main className="space-y-20 pb-16 pt-12 md:space-y-24 md:pt-16">
+      <main
+        className={`pb-16 ${isHome ? 'pt-0' : 'pt-12 md:pt-16'} space-y-16 md:space-y-20`}
+      >
+        {isHome && <Hero />}
         {isProductPage && activeProduct ? (
           <>
             <ProductDetailLayout
@@ -416,7 +437,7 @@ export default function App() {
           <>
             <section
               id="about"
-              className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-12"
+              className="mx-auto w-full max-w-7xl px-6 py-16 sm:py-20 md:px-10 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-12"
             >
               <div className="space-y-8">
                 <motion.span
@@ -425,7 +446,7 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  Sunmax Laboratories Advantage
+                  About Sunmax Laboratories
                 </motion.span>
 
                 <motion.h2
@@ -434,7 +455,7 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
                 >
-                  Integrated manufacturing, diagnostics, and franchise enablement.
+                  Sunmax Laboratories Advantage
                 </motion.h2>
 
                 <motion.p
@@ -443,55 +464,64 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Sunmax Laboratories Pvt. Ltd. crafts differentiated medicinal products across antibiotics,
-                  injectables, pediatric care, hematinics, and specialty therapeutics. Guided by WHO-GMP, GLP, and ISO
-                  certified protocols similar to Plena Remedies Pvt. Ltd., we support next-generation healthcare
-                  entrepreneurs with turnkey solutions.
+                  We strictly stick to the safest formulas and remain transparent while producing and supplying them. We
+                  never deviate from any policies or standards because pharmacy safeguards the most important thing –
+                  health. Our continuous recognition and repeated business are a clear indication of the quality and
+                  hygiene we maintain across the supply chain.
                 </motion.p>
 
                 <motion.div
-                  className="grid gap-4 sm:grid-cols-2"
+                  className="space-y-3 rounded-3xl border border-border bg-muted/40 p-6"
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                >
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">What We Do</p>
+                  <p className="text-base leading-relaxed text-foreground sm:text-lg">
+                    We continue research to produce the best possible medicines without compromising on quality. With
+                    support from our research and development team, we follow health surveys, understand people and the
+                    market, and provide the best inputs for the best outputs in a suitable environment for both the
+                    plant and the people.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-muted/40 p-4">
-                    <Sparkles className="h-5 w-5 text-primary" />
-                    Precision-led R&D with digital traceability across every batch.
-                  </div>
-                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-muted/40 p-4">
-                    <GraduationCap className="h-5 w-5 text-primary" />
-                    Dedicated regulatory, analytics, and clinical validation teams.
-                  </div>
+                  {aboutHighlights.map(({ icon: Icon, title, description }) => (
+                    <div key={title} className="flex flex-col gap-2 rounded-2xl border border-border bg-background/80 p-4">
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-5 w-5 text-primary" />
+                        <p className="text-sm font-semibold tracking-tight text-foreground">{title}</p>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{description}</p>
+                    </div>
+                  ))}
                 </motion.div>
               </div>
 
               <motion.div
-                className="relative mt-10 flex h-full min-h-[320px] items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-[hsl(var(--brand-deep))] via-[hsl(var(--brand-primary))] to-[hsl(var(--brand-light))] shadow-2xl lg:mt-0"
+                className="relative mt-10 flex h-full min-h-[320px] items-center justify-center overflow-hidden rounded-3xl border border-border shadow-2xl lg:mt-0"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <motion.div
-                  className="absolute inset-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.35, duration: 0.5 }}
+                <motion.img
+                  src={aboutImage}
+                  alt="Quality-first manufacturing environment at Sunmax Laboratories"
+                  className="h-full w-full object-cover"
+                  initial={{ scale: 1.05 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                 />
-                <motion.div
-                  className="relative z-10 flex flex-col items-center gap-4 px-8 text-center text-white"
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.4 }}
-                >
-                  <span className="rounded-full bg.white/20 px-4 py-1 text-xs uppercase tracking-[0.3em]">
-                    Quality First
-                  </span>
-                  <p className="max-w-sm text-sm leading-relaxed text-slate-100/80">
-                    Inspired by Plena Remedies’ benchmark franchise model, Sunmax integrates analytics, automation, and
-                    compliance to build trustworthy healthcare partnerships.
-                  </p>
-                </motion.div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-6 text-sm text-white/80">
+                  Continuous recognition across the supply chain reflects the hygiene and transparency we uphold at our
+                  Hyderabad facility.
+                </div>
               </motion.div>
             </section>
 
@@ -499,7 +529,7 @@ export default function App() {
 
             <section
               id="divisions"
-              className="bg-gradient-to-br from-[hsl(var(--brand-deep))] via-[hsl(var(--brand-primary))]/90 to-[hsl(var(--brand-secondary))]/80 py-16"
+              className="bg-gradient-to-br from-[hsl(var(--brand-deep))] via-[hsl(var(--brand-primary))]/90 to-[hsl(var(--brand-secondary))]/80 py-16 sm:py-20"
             >
               <div className="container space-y-10 text-slate-100">
                 <motion.div
@@ -512,7 +542,7 @@ export default function App() {
                   <h2 className="text-3xl font-semibold sm:text-4xl">Traditional expertise, future-ready science</h2>
                   <p className="mx-auto max-w-3xl text-sm text-slate-300">
                     We collaborate across antibiotic, pediatric, and specialty therapy lines to deliver responsive,
-                    franchise-ready portfoliosmirroring the integrated model championed by Plena Remedies Pvt. Ltd.
+                    franchise-ready portfolios backed by decades of disciplined manufacturing practice.
                   </p>
                 </motion.div>
 
@@ -550,7 +580,7 @@ export default function App() {
       />
 
       {toastMessage && (
-        <div className="fixed bottom-4 right-4 z-50 rounded-xl bg-slate-900 px-4 py-3 text-xs text-slate-50 shadow-lg">
+        <div className="fixed top-4 right-4 z-50 rounded-xl bg-slate-900 px-4 py-3 text-xs text-slate-50 shadow-lg">
           {toastMessage}
         </div>
       )}

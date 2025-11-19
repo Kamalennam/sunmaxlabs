@@ -151,7 +151,14 @@ export function Footer({ goHome, isProductPage = false }: FooterProps) {
       <div className="border-t border-white/10">
         <div className="container flex flex-col items-center justify-between gap-4 py-6 text-xs text-slate-400 sm:flex-row">
           <span>&copy; {new Date().getFullYear()} Sunmax Laboratories Pvt. Ltd. All rights reserved.</span>
-          <span>Inspired by benchmark practices from Sunmax Laboratories and Plena Remedies Pvt. Ltd.</span>
+          <a
+            href="https://techgraphicss.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-200 transition hover:text-white"
+          >
+            Designed and Developed by Techgraphicss
+          </a>
         </div>
       </div>
     </footer>
