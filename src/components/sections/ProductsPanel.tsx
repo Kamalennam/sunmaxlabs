@@ -31,7 +31,9 @@ function AutoImage({ images, name }: { images: string[]; name: string }) {
       key={current}
       src={current}
       alt={name}
-      className="h-32 w-full rounded-2xl border border-border object-contain bg-white/80 p-2 shadow-sm"
+      // className="h-32 w-full rounded-2xl border border-border object-contain bg-white/80 p-2 shadow-sm"
+      className="h-40 w-full rounded-2xl border border-border object-contain bg-white/80 p-3 shadow-sm"
+
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
@@ -91,7 +93,9 @@ export function ProductsPanel({ isOpen, onClose, onEnquiry, onViewProduct }: Pro
 
                   <div className="space-y-1">
                     <h3 className="text-sm font-semibold text-foreground">{product.name}</h3>
-                    <p className="text-[11px] text-muted-foreground line-clamp-2">{product.tagline}</p>
+                    {/* <p className="text-[11px] text-muted-foreground line-clam/p-2">{product.tagline}</p> */}
+                    <p className="text-xs text-muted-foreground line-clamp-2">{product.tagline}</p>
+
                   </div>
 
                   <div className="mt-auto flex flex-wrap gap-2 pt-1">

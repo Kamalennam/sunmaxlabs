@@ -28,7 +28,7 @@ function AutoImage({ images, name }: { images: string[]; name: string }) {
       key={current}
       src={current}
       alt={name}
-      className="h-36 w-full rounded-2xl border border-border object-contain bg-white/95 p-2 shadow-sm md:h-40 lg:h-44"
+      className="h-44 w-full rounded-2xl border border-border object-contain bg-white/95 p-3 shadow-sm md:h-48 lg:h-52"
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
@@ -91,7 +91,7 @@ export function ProductsSection({ onProductClick }: ProductsSectionProps) {
 
               <div className="space-y-1">
                 <h3 className="text-sm font-semibold text-foreground">{product.name}</h3>
-                <p className="text-[11px] text-muted-foreground line-clamp-2">{product.tagline}</p>
+                <p className="text-xs text-muted-foreground line-clamp-2">{product.tagline}</p>
               </div>
 
               <div className="mt-auto flex items-center justify-between pt-1 text-[11px] text-muted-foreground">
